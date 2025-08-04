@@ -36,3 +36,5 @@ void	ft_checker(char **args)
 		i++;
 	}
 }
+
+
