@@ -1,30 +1,44 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_tolower.c                                       :+:      :+:    :+:   */
+/*   isalpha.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lperalta <lperalta@student.42malaga.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/27 19:09:26 by lperalta          #+#    #+#             */
-/*   Updated: 2025/04/27 19:16:47 by lperalta         ###   ########.fr       */
+/*   Created: 2025/04/22 10:37:38 by lperalta          #+#    #+#             */
+/*   Updated: 2025/04/22 10:49:57 by lperalta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <stdio.h>
 #include "../libft.h"
 
-int	ft_tolower(int c)
+int	ft_isupper(int c)
 {
-	if (ft_isupper(c))
-		return (c + 32);
-	return (c);
+	if (c >= 65 && c <= 90)
+		return (1);
+	return (0);
 }
 
+int	ft_islower(int c)
+{
+	if (c >= 97 && c <= 122)
+		return (1);
+	return (0);
+}
 
-/*int main(int argc, char **argv)
+int	ft_isalpha(int c)
+{
+	if (ft_isupper(c) || ft_islower(c))
+		return (1);
+	return (0);
+}
+
+/*int	main(int argc, char **argv)
 {
 	if (argc != 2)
-	printf("ERROR");
+		printf("ERROR");
 	else
-	printf("%c\n", tolower(argv[1][0]));
-	return (0);
+		printf("%d\n", ft_isalpha(argv[1][0]));
+	return(0);
 }*/

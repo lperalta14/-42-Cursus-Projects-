@@ -1,30 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_tolower.c                                       :+:      :+:    :+:   */
+/*   ft_memchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lperalta <lperalta@student.42malaga.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/27 19:09:26 by lperalta          #+#    #+#             */
-/*   Updated: 2025/04/27 19:16:47 by lperalta         ###   ########.fr       */
+/*   Created: 2025/05/02 13:13:13 by lperalta          #+#    #+#             */
+/*   Updated: 2025/05/02 13:15:11 by lperalta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../libft.h"
 
-int	ft_tolower(int c)
+void	*ft_memchr(const void *s, int c, size_t n)
 {
-	if (ft_isupper(c))
-		return (c + 32);
-	return (c);
+	unsigned char	x;
+	unsigned char	*str;
+
+	str = (unsigned char *) s;
+	x = (unsigned char) c;
+	if (n == 0)
+		return (NULL);
+	while (n > 0)
+	{
+		if (*str == x)
+			return (str);
+		str++;
+		n--;
+	}
+	return (NULL);
 }
-
-
-/*int main(int argc, char **argv)
-{
-	if (argc != 2)
-	printf("ERROR");
-	else
-	printf("%c\n", tolower(argv[1][0]));
-	return (0);
-}*/

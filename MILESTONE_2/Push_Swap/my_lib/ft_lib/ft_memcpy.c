@@ -1,30 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_tolower.c                                       :+:      :+:    :+:   */
+/*   ft_memcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lperalta <lperalta@student.42malaga.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/27 19:09:26 by lperalta          #+#    #+#             */
-/*   Updated: 2025/04/27 19:16:47 by lperalta         ###   ########.fr       */
+/*   Created: 2025/04/22 18:34:45 by lperalta          #+#    #+#             */
+/*   Updated: 2025/04/22 18:34:48 by lperalta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 #include "../libft.h"
 
-int	ft_tolower(int c)
+void	*ft_memcpy(void *dest, const void *src, size_t n)
 {
-	if (ft_isupper(c))
-		return (c + 32);
-	return (c);
+	size_t	i;
+	char	*s;
+	char	*d;
+
+	i = 0;
+	s = (char *) src;
+	d = (char *) dest;
+	if (!dest && !src)
+		return (dest);
+	while (i < n)
+	{
+		d[i] = s[i];
+		i++;
+	}
+	return (dest);
 }
-
-
-/*int main(int argc, char **argv)
+/*int main()
 {
-	if (argc != 2)
-	printf("ERROR");
-	else
-	printf("%c\n", tolower(argv[1][0]));
-	return (0);
+	char dest[15];
+	char *src = "hola paco";
+	
+	printf("%s\n", memcpy(&dest[0], src, 1));
+	printf("%s\n", ft_memcpy(&dest[0], src, 1));
 }*/

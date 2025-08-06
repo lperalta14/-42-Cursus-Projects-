@@ -1,30 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_tolower.c                                       :+:      :+:    :+:   */
+/*   ft_strtrim.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lperalta <lperalta@student.42malaga.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/27 19:09:26 by lperalta          #+#    #+#             */
-/*   Updated: 2025/04/27 19:16:47 by lperalta         ###   ########.fr       */
+/*   Created: 2025/05/07 14:58:50 by lperalta          #+#    #+#             */
+/*   Updated: 2025/05/07 15:11:04 by lperalta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../libft.h"
 
-int	ft_tolower(int c)
+char	*ft_strtrim(char const *s1, char const *set)
 {
-	if (ft_isupper(c))
-		return (c + 32);
-	return (c);
+	char	*str;
+	int		a;
+	int		z;
+	int		len;
+
+	if (!s1 || !set)
+		return (NULL);
+	a = 0;
+	while (s1[a] && ft_strchr(set, s1[a]))
+		a++;
+	z = ft_strlen(s1) - 1;
+	while (z > a && ft_strchr(set, s1[z]))
+		z--;
+	len = z - a + 1;
+	str = ft_substr(s1, a, len);
+	if (!str)
+		return (NULL);
+	return (str);
 }
 
-
-/*int main(int argc, char **argv)
-{
-	if (argc != 2)
-	printf("ERROR");
-	else
-	printf("%c\n", tolower(argv[1][0]));
-	return (0);
+/*	while (s1 && *s1 != *coinc)
+		*str++ = *s1++;
+		coinc++;
+	return (str)	
 }*/

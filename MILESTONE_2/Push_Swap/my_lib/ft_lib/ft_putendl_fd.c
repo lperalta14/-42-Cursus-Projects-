@@ -1,30 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_tolower.c                                       :+:      :+:    :+:   */
+/*   ft_putendl_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lperalta <lperalta@student.42malaga.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/27 19:09:26 by lperalta          #+#    #+#             */
-/*   Updated: 2025/04/27 19:16:47 by lperalta         ###   ########.fr       */
+/*   Created: 2025/05/05 12:02:07 by lperalta          #+#    #+#             */
+/*   Updated: 2025/05/05 12:05:29 by lperalta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../libft.h"
 
-int	ft_tolower(int c)
+void	ft_putendl_fd(char *s, int fd)
 {
-	if (ft_isupper(c))
-		return (c + 32);
-	return (c);
+	ft_putstr_fd(s, fd);
+	write(fd, "\n", 1);
 }
-
-
-/*int main(int argc, char **argv)
-{
-	if (argc != 2)
-	printf("ERROR");
-	else
-	printf("%c\n", tolower(argv[1][0]));
-	return (0);
-}*/

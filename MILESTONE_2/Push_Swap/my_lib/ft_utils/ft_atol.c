@@ -1,0 +1,39 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_atol.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: lperalta <lperalta@student.42.fr>          #+#  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025-08-05 15:35:27 by lperalta          #+#    #+#             */
+/*   Updated: 2025-08-05 15:35:27 by lperalta         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "../libft.h"
+
+long	ft_atol(const char *nptr)
+{
+	long	sign;
+	long	result;
+
+	sign = 1;
+	result = 0;
+	while (ft_isspace(*nptr))
+		nptr++;
+	if (*nptr == 45)
+	{
+		sign = -1;
+		nptr++;
+	}
+	else if (*nptr == 43)
+		nptr++;
+	while ((*nptr) && ft_isdigit(*nptr))
+	{
+		result = result * 10;
+		result = result + (*nptr - '0');
+		nptr++;
+	}
+	result = result * sign;
+	return (result);
+}

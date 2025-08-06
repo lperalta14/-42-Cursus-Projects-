@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swao.c                                        :+:      :+:    :+:   */
+/*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lperalta <lperalta@student.42malaga.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -10,22 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-/*int	main(int argc, char **argv)
-{
- //argv[argc] = NULL;
 
-	if(argc > 1)
-	{
-		if(ft_checkerarguments(argv))
-		{ 	checker simbols, dulicados)
-			ft_error(si memory free, mensaje error);
-			return(1);
-		}
-		create list(spli, atoi e ints);
-		ordenar;
-	}
-	return(0);
-}*/
 
 int	main(int argc, char **argv)
 {

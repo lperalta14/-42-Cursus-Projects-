@@ -1,22 +1,32 @@
-int	ft_atoi_base(const char *str, int str_base)
+
+#include "../libft.h"
+
+char	ft_checkbase(int str_base)
 {
-	if(str_base < 2 || str_base > 16 || !*str)
-		return(0);
 	char base;
+	if(str_base < 2 || str_base > 16)
+		return(0);
+
 	if(str_base < 11)
 		base = (str_base - 1) + 48;
 	else
 		base = str_base + 'a' -10;
+	return(base);
+}
 
-	int res = 0;
-	int sign = 1;
+int	ft_atoi_base(const char *str, int str_base)
+{
+	int res;
+	int sign;
+	char base;
+
+	res = 0;
+	sign = 1;
+	base = ft_checkbase(str_base);
 	while(*str > 0 && *str < 33)
 		str++;
-	if(*str == '-')
-	{
+	if(*str++ == '-')
 		sign = -1;
-		str++;
-	}
 	while(*str)
 	{
 		if(*str >= '0' && *str<= '9' && *str <= base)
@@ -31,14 +41,4 @@ int	ft_atoi_base(const char *str, int str_base)
 	}
 	res = res * sign;
 	return(res);
-}
-
-#include<stdio.h>
-
-int main(int argc, char **argv)
-{
-	if (argc == 3)
-	
-		printf("%d\n", ft_atoi_base(argv[1], ft_atoi_base(argv[2],10)));
-	return(0);
 }

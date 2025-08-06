@@ -1,30 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_tolower.c                                       :+:      :+:    :+:   */
+/*   ft_strrchr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lperalta <lperalta@student.42malaga.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/27 19:09:26 by lperalta          #+#    #+#             */
-/*   Updated: 2025/04/27 19:16:47 by lperalta         ###   ########.fr       */
+/*   Created: 2025/05/02 12:40:06 by lperalta          #+#    #+#             */
+/*   Updated: 2025/05/02 12:40:08 by lperalta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../libft.h"
 
-int	ft_tolower(int c)
+char	*ft_strrchr(const char *s, int c)
 {
-	if (ft_isupper(c))
-		return (c + 32);
-	return (c);
+	int				len;
+	char			*str;
+	unsigned char	x;
+
+	x = (unsigned char) c;
+	str = (char *) s;
+	len = ft_strlen(s);
+	str += len;
+	while (len >= 0)
+	{
+		if (*str == x)
+			return (str);
+		str --;
+		len --;
+	}
+	return (NULL);
 }
-
-
-/*int main(int argc, char **argv)
-{
-	if (argc != 2)
-	printf("ERROR");
-	else
-	printf("%c\n", tolower(argv[1][0]));
-	return (0);
-}*/

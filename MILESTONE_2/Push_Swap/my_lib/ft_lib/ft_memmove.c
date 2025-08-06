@@ -1,30 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_tolower.c                                       :+:      :+:    :+:   */
+/*   ft_memmove.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lperalta <lperalta@student.42malaga.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/27 19:09:26 by lperalta          #+#    #+#             */
-/*   Updated: 2025/04/27 19:16:47 by lperalta         ###   ########.fr       */
+/*   Created: 2025/04/23 11:22:27 by lperalta          #+#    #+#             */
+/*   Updated: 2025/04/23 11:22:34 by lperalta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 #include "../libft.h"
 
-int	ft_tolower(int c)
+void	*ft_memmove(void *dest, const void *src, size_t n)
 {
-	if (ft_isupper(c))
-		return (c + 32);
-	return (c);
-}
+	char	*s;
+	char	*d;
 
-
-/*int main(int argc, char **argv)
-{
-	if (argc != 2)
-	printf("ERROR");
+	s = (char *) src;
+	d = (char *) dest;
+	if (src < dest)
+		while (n--)
+			d[n] = s[n];
 	else
-	printf("%c\n", tolower(argv[1][0]));
-	return (0);
+		ft_memcpy(dest, src, n);
+	return (dest);
+}
+/*int main()
+{
+	char dest[15];
+	char src[] = "hola paco";
+	
+	printf("%s\n", memmove(&dest[0], src, 4));(src + 2, src, 4));
+	printf("%s\n", ft_memmove(&dest[0], src, 4));(src + 2, src, 4));
 }*/

@@ -1,30 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_tolower.c                                       :+:      :+:    :+:   */
+/*   writers.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lperalta <lperalta@student.42malaga.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/27 19:09:26 by lperalta          #+#    #+#             */
-/*   Updated: 2025/04/27 19:16:47 by lperalta         ###   ########.fr       */
+/*   Created: 2025/05/21 13:36:31 by lperalta          #+#    #+#             */
+/*   Updated: 2025/05/21 13:54:45 by lperalta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../libft.h"
 
-int	ft_tolower(int c)
+int	ft_slen(char *s)
 {
-	if (ft_isupper(c))
-		return (c + 32);
-	return (c);
+	int		i;
+
+	i = 0;
+	while (*s++)
+		i++;
+	return (i);
 }
 
-
-/*int main(int argc, char **argv)
+int	ft_putchar(char c)
 {
-	if (argc != 2)
-	printf("ERROR");
-	else
-	printf("%c\n", tolower(argv[1][0]));
-	return (0);
-}*/
+	write(1, &c, 1);
+	return (1);
+}
+
+int	ft_putstr(char *s)
+{
+	if (!s)
+		return (ft_putstr("(null)"));
+	write(1, s, ft_slen(s));
+	return (ft_slen(s));
+}

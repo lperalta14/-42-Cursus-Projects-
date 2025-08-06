@@ -1,30 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_tolower.c                                       :+:      :+:    :+:   */
+/*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lperalta <lperalta@student.42malaga.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/27 19:09:26 by lperalta          #+#    #+#             */
-/*   Updated: 2025/04/27 19:16:47 by lperalta         ###   ########.fr       */
+/*   Created: 2025/05/05 10:25:38 by lperalta          #+#    #+#             */
+/*   Updated: 2025/05/05 11:00:32 by lperalta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../libft.h"
 
-int	ft_tolower(int c)
+char	*ft_strjoin(char const *s1, char const *s2)
 {
-	if (ft_isupper(c))
-		return (c + 32);
-	return (c);
+	size_t	len;
+	char	*strdest;
+
+	len = (ft_strlen(s1) + ft_strlen(s2) + 1);
+	strdest = (char *) malloc (len * sizeof (char));
+	if (!strdest)
+		return (NULL);
+	ft_strlcpy(strdest, s1, len);
+	ft_strlcat(strdest, s2, len);
+	return (strdest);
 }
-
-
-/*int main(int argc, char **argv)
-{
-	if (argc != 2)
-	printf("ERROR");
-	else
-	printf("%c\n", tolower(argv[1][0]));
-	return (0);
-}*/

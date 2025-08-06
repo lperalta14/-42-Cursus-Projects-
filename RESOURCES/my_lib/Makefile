@@ -1,15 +1,3 @@
-# **************************************************************************** #
-#                                                                              #
-#                                                         :::      ::::::::    #
-#    Makefile                                           :+:      :+:    :+:    #
-#                                                     +:+ +:+         +:+      #
-#    By: lperalta <lperalta@student.42malaga.c      +#+  +:+       +#+         #
-#                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2025/04/28 12:22:06 by lperalta          #+#    #+#              #
-#    Updated: 2025/08/04 11:07:41 by lperalta         ###   ########.fr        #
-#                                                                              #
-# **************************************************************************** #
-
 # Library name
 NAME = libft.a
 
@@ -29,10 +17,12 @@ BONUS_SRC = ft_list/ft_lstnew.c ft_list/ft_lstadd_back.c ft_list/ft_lstadd_front
 
 # Object files
 OBJS = $(SRCS:%.c=$(OBJ_DIR)/%.o)
+
 BONUS_OBJ = $(BONUS_SRC:%.c=$(OBJ_DIR)/%.o)
 
 # Compiler and flags
-CC = cc 
+CC = cc
+
 CFLAGS = -Wall -Wextra -Werror
 
 # Utils
@@ -50,28 +40,31 @@ NC=\033[0m  # (reset)
 all: $(NAME)
 
 # Compilating library
-$(NAME) : $(OBJS)
+$(NAME) : $(OBJ_DIR) $(OBJS)
 	@echo "$(RED)Cumpilating $(NAME)...🫦$(NC)"
-	@ $(AR) $(NAME) $(OBJS)
+	@$(AR) $(NAME) $(OBJS)
 	@echo "    $(GREEN)🫦 Success 🫦$(NC)"
 
+$(OBJ_DIR):
+	@mkdir -p $(OBJ_DIR)
+
   ## Obj creating into objects directory
-$(OBJ_DIR)/%.o: %.c $(HEADER)
+$(OBJ_DIR)/%.o: %.c $(HEADER) | $(OBJ_DIR)
 	@mkdir -p $(dir $@)
 	@$(CC) $(CFLAGS) -c $< -o $@
 
   ## Bonus compilating
-bonus: $(OBJS) $(BONUS_OBJS)
+bonus: $(BONUS_OBJ)
 	@$(AR) $(NAME) $(BONUS_OBJ)
 	@echo "🫦Bonus check🫦"
 
   ## cleaning
 clean:
-	@$(RM) $(OBJS) $(BONUS_OBJ)
-clean_dir:
 	@$(RM) $(OBJ_DIR)
+
 fclean: clean
 	$(RM) $(NAME)
+	
 re: fclean all
 
 .PHONY: all bonus clean fclean re
