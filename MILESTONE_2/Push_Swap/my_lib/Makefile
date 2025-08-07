@@ -10,7 +10,7 @@ OBJ_DIR = obj
 # Sources
 PRINTF_SRCS = ft_printf/ft_printf.c ft_printf/nbrs.c ft_printf/writers.c
 
-UTILS_SRCS = ft_utils/ft_atoibase.c 
+UTILS_SRCS = ft_utils/ft_atoibase.c ft_utils/ft_atol.c
 
 
 SRCS = ft_lib/ft_isalpha.c ft_lib/ft_isdigit.c ft_lib/ft_isalnum.c ft_lib/ft_isascii.c ft_lib/ft_isprint.c \

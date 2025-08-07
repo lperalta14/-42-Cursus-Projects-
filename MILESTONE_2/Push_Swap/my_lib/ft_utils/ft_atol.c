@@ -31,9 +31,10 @@ long	ft_atol(const char *nptr)
 	while ((*nptr) && ft_isdigit(*nptr))
 	{
 		result = result * 10;
-		result = result + (*nptr - '0');
-		nptr++;
+		result = result + (*nptr++ - '0');
+		if ((result * sign) < INT_MIN || (result * sign) > INT_MAX)
+			return(result);
 	}
-	result = result * sign;
+	result *= sign;
 	return (result);
 }

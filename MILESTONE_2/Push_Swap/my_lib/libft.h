@@ -17,6 +17,7 @@
 # include <stdio.h>
 # include <unistd.h>
 # include <stdarg.h>
+# include <limits.h>
 
 typedef struct	s_list
 {
@@ -79,5 +80,6 @@ int		ft_putptr(unsigned long n);
 int		ft_printf(const char *nbr, ...);
 // ft_utils
 int		ft_atoi_base(const char *str, int str_base);
+long	ft_atol(const char *nptr);
 
 #endif
