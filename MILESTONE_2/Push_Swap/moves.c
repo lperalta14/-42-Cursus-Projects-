@@ -1,28 +1,15 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   moves.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lperalta <lperalta@student.42malaga.c      +#+  +:+       +#+        */
+/*   By: lperalta <lperalta@student.42.fr>          #+#  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/07/29 17:28:46 by lperalta          #+#    #+#             */
-/*   Updated: 2025/07/29 19:30:40 by lperalta         ###   ########.fr       */
+/*   Created: 2025-08-07 13:11:12 by lperalta          #+#    #+#             */
+/*   Updated: 2025-08-07 13:11:12 by lperalta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
 #include "my_lib/libft.h"
+#include "push_swap.h"
 
-int	main(int argc, char **argv)
-{
-	t_node	**arg_list;
-
-	arg_list = ft_get_arguments(argc, argv);
-	if (arg_list == NULL)
-	{
-		//print error en los argumentos
-		return (1);
-	}
-	pushswap(arg_list);
-	return (0);
-}

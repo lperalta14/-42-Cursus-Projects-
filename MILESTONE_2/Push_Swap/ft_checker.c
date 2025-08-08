@@ -1,3 +1,4 @@
+
 /******************************************************************************/
 /*                                                                            */
 /*                                                        :::      ::::::::   */
@@ -34,24 +35,29 @@ int	ft_checkervalids(char **args)
 					&& !ft_isspace(args[i][j]))
 			{
 				write(1, "no\n", 3);
-				return(1);				
+				return (1);
 			}
 			j++;
 		}
 		i++;
 	}
-	return(0);
+	return (0);
 }
-
-
-int main(int argc, char **argv)
+int	ft_valid_digit(char *str)
 {
-	int i=1;
-	while(i <= argc)
+	int i;
+
+	i = 0;
+	if(!str || *str)
+		return (0);
+	if(ft_sign(str[i]))
+		i++;
+	while(str[i])
 	{
-		if(ft_checkervalids(&argv[i]))
-			return(1);
+		if(!ft_isdigit(str[i]))
+			return (0);
 		i++;
 	}
-	return(0);
+	return (1);
 }
+int	ft_dups()
