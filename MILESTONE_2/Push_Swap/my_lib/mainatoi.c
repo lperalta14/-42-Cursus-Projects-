@@ -5,7 +5,7 @@ int main(int argc, char **argv)
 	int i = 1;
 	while(i < argc)
 	{
-		printf("%ld\n", ft_atol(argv[i]));
+		printf("%ld\n", ft_atolints(argv[i]));
 		i++;
 	}
 	return(0);

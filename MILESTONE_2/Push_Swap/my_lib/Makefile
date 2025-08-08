@@ -10,7 +10,7 @@ OBJ_DIR = obj
 # Sources
 PRINTF_SRCS = ft_printf/ft_printf.c ft_printf/nbrs.c ft_printf/writers.c
 
-UTILS_SRCS = ft_utils/ft_atoibase.c ft_utils/ft_atol.c
+UTILS_SRCS = ft_utils/ft_atoibase.c ft_utils/ft_atolints.c
 
 
 SRCS = ft_lib/ft_isalpha.c ft_lib/ft_isdigit.c ft_lib/ft_isalnum.c ft_lib/ft_isascii.c ft_lib/ft_isprint.c \
@@ -23,7 +23,7 @@ ft_lib/ft_split.c $(PRINTF_SRCS) $(UTILS_SRCS)
 
 # Bonus sources
 BONUS_SRC = ft_list/ft_lstnew.c ft_list/ft_lstadd_back.c ft_list/ft_lstadd_front.c ft_list/ft_lstclear.c \
-ft_list/ft_lstdelone.c ft_list/ft_lstlast.c ft_list/ft_lstmap.c ft_list/ft_lstsize.c 
+ft_list/ft_lstdelone.c ft_list/ft_lstlast.c ft_list/ft_lstmap.c ft_list/ft_lstsize.c ft_list/ft_lstiter.c
 
 # Object files
 OBJS = $(SRCS:%.c=$(OBJ_DIR)/%.o)

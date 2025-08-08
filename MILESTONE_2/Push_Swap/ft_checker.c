@@ -20,7 +20,7 @@ int	ft_sign(char c)
 	return (0);
 }
 
-int	ft_checkervalids(char **args)
+void	ft_checkervalids(char **args)
 {
 	int		i;
 	int		j;
@@ -28,20 +28,18 @@ int	ft_checkervalids(char **args)
 	i = 1;
 	while (args[i])
 	{
+		if(ft_strlen(args[i] < 1))
+			ft_error(NULL, NULL);
 		j = 0;
 		while (args[i][j])
 		{
 			if (!ft_isdigit(args[i][j]) && !ft_sign(args[i][j])
 					&& !ft_isspace(args[i][j]))
-			{
-				write(1, "no\n", 3);
-				return (1);
-			}
+					ft_error(NULL, NULL);
 			j++;
 		}
 		i++;
 	}
-	return (0);
 }
 int	ft_valid_digit(char *str)
 {

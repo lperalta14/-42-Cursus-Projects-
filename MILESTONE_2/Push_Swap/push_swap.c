@@ -17,12 +17,10 @@ int	main(int argc, char **argv)
 {
 	t_node	**arg_list;
 
+	ft_checkervalids(argv);
 	arg_list = ft_get_arguments(argc, argv);
 	if (arg_list == NULL)
-	{
-		//print error en los argumentos
-		return (1);
-	}
+		ft_error(NULL, NULL);
 	//pushswap(arg_list);
 	ft_free_stack(arg_list);
 	return (0);

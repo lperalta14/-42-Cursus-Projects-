@@ -115,7 +115,7 @@ int	main(void)
 
 	i = 3;
 	prueba = NULL;
-	fd = open("mariallora.txt", O_RDONLY);
+	fd = 0; //open("mariallora.txt", O_RDONLY);
 	if (fd < 0)
 		return (0);
 	while (i--)

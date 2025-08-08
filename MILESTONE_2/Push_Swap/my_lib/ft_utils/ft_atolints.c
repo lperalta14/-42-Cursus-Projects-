@@ -12,7 +12,7 @@
 
 #include "../libft.h"
 
-long	ft_atol(const char *nptr)
+long	ft_atolints(const char *nptr)
 {
 	long	sign;
 	long	result;

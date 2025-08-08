@@ -33,7 +33,8 @@ void	ft_free_split(char **split)
 
 void	ft_error(char **split, t_node **stack)
 {
+	write(2, "ERROR\n", 6);
 	ft_free_split(split);
 	ft_free_stack(stack);
-	exit(1);
+	exit(2);
 }
