@@ -16,7 +16,7 @@
 void ft_getnode(t_node **stack, char **split)
 {
 	int		j;
-	int		num;
+	long	num;
 	t_node *new;
 
 	j = 0;
@@ -27,28 +27,31 @@ void ft_getnode(t_node **stack, char **split)
 		num = ft_atolints(split[j]);
 		if (num > INT_MAX || num < INT_MIN)
 			ft_error(split, stack);
+		new = ft_lstnew((int)num);
+		if (!new)
+			ft_error(split, stack);
+		ft_lstadd_back(stack, new);
+		j++;
 	}
-	new = ft_lstnew(&num);
-	if (!new)
-		ft_error(split, stack);
-	ft_lstadd_back(stack, new);
 	ft_free_split(split);
 }
 
-t_node	**ft_get_arguments(int argc, char **argv)
+t_node	*ft_get_arguments(int argc, char **argv)
 {
 	int i;
 	char **split;
-	t_node	**stack;
+	t_node	*stack_a;
 
-	stack = NULL, i = 1;
+	stack_a = NULL;
+	i = 1;
 	while(i < argc)
 	{
 		split = ft_split(argv[i], ' ');
 		if (!split)
-			ft_error(split, stack);
-		ft_getnode(stack, split);
+			ft_error(split, &stack_a);
+		ft_getnode(&stack_a, split);
+		i++;
 	}
-	return (stack);
+	return (stack_a);
 }
 

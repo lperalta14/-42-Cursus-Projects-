@@ -12,6 +12,7 @@
 /* ************************************************************************** */
 
 #include "my_lib/libft.h"
+#include "push_swap.h"
 
 int	ft_sign(char c)
 {
@@ -28,7 +29,7 @@ void	ft_checkervalids(char **args)
 	i = 1;
 	while (args[i])
 	{
-		if(ft_strlen(args[i] < 1))
+		if(ft_strlen(args[i]) < 1)
 			ft_error(NULL, NULL);
 		j = 0;
 		while (args[i][j])
@@ -46,16 +47,35 @@ int	ft_valid_digit(char *str)
 	int i;
 
 	i = 0;
-	if(!str || *str)
+	if (!str || !*str)
 		return (0);
-	if(ft_sign(str[i]))
+	if (ft_sign(str[i]))
 		i++;
-	while(str[i])
+	if (!ft_isdigit(str[i]))
+			return (0);
+	while (str[i])
 	{
-		if(!ft_isdigit(str[i]))
+		if (!ft_isdigit(str[i]))
 			return (0);
 		i++;
 	}
 	return (1);
 }
-//int	ft_dups()
+int	ft_check_dups(t_node *stack)
+{
+	t_node	*now;
+	t_node	*dup;
+
+	now = stack;
+	while (now)
+	{
+		dup = now->next;
+		while (dup)
+		{
+			if (dup->value == now->value)
+				ft_error(NULL, &stack);
+			dup = dup->next;
+		}
+		now = now->next;
+	}
+}

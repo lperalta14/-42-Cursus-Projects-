@@ -15,13 +15,16 @@
 
 int	main(int argc, char **argv)
 {
-	t_node	**arg_list;
+	t_node	*arg_list;
 
+	if(argc < 2)
+		return(0);
 	ft_checkervalids(argv);
 	arg_list = ft_get_arguments(argc, argv);
-	if (arg_list == NULL)
+	if (!arg_list)
 		ft_error(NULL, NULL);
+	check_duplicates(arg_list);
 	//pushswap(arg_list);
-	ft_free_stack(arg_list);
+	ft_free_stack(&arg_list);
 	return (0);
 }

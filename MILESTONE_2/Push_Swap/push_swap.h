@@ -11,7 +11,7 @@ typedef struct s_node
 	struct s_node  *next;
 }	t_node;
 
-t_node	**ft_get_arguments(int argc, char **argv);
+t_node	*ft_get_arguments(int argc, char **argv);
 void ft_getnode(t_node **stack, char **split);
 void	ft_checkervalids(char **args);
 int		ft_valid_digit(char *str);
