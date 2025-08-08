@@ -60,4 +60,4 @@ int	ft_valid_digit(char *str)
 	}
 	return (1);
 }
-int	ft_dups()
+//int	ft_dups()

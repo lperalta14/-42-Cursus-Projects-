@@ -23,6 +23,7 @@ int	main(int argc, char **argv)
 		//print error en los argumentos
 		return (1);
 	}
-	pushswap(arg_list);
+	//pushswap(arg_list);
+	ft_free_stack(arg_list);
 	return (0);
 }

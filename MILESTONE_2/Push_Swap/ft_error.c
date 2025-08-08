@@ -22,7 +22,7 @@ void	ft_free_split(char **split)
 	int i;
 	i = 0;
 	if (!split)
-		return;
+		return ;
 	while (split[i])
 	{
 		free(split[i]);
@@ -31,9 +31,9 @@ void	ft_free_split(char **split)
 	free(split);
 }
 
-void	ft_error(char **split, t_node stack)
+void	ft_error(char **split, t_node **stack)
 {
 	ft_free_split(split);
-	ft_free_stack(&stack);
-	exit;
+	ft_free_stack(stack);
+	exit(1);
 }

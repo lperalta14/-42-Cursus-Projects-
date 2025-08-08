@@ -19,6 +19,7 @@ t_node	**ft_get_arguments(int argc, char **argv)
 	int	j;
 	char **split;
 	long num;
+	t_node	*stack
 
 	i = 1;
 	while(i < argc)
@@ -37,5 +38,7 @@ t_node	**ft_get_arguments(int argc, char **argv)
 		}
 		ft_lstadd_back(&stack, ft_lstnew((int)num));
 	}
-	free_split()
+	free_split(split);
+	return (stack);
 }
+
