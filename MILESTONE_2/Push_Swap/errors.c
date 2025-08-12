@@ -28,12 +28,13 @@ void	ft_free_split(char **split)
 		free(split[i]);
 		i++;
 	}
+	split = NULL;
 	free(split);
 }
 
 void	ft_error(char **split, t_node **stack)
 {
-	write(2, "ERROR\n", 6);
+	write(2, "Error\n", 6);
 	ft_free_split(split);
 	ft_free_stack(stack);
 	exit(2);

@@ -11,7 +11,6 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "my_lib/libft.h"
 #include "push_swap.h"
 
 int	ft_sign(char c)
@@ -61,7 +60,7 @@ int	ft_valid_digit(char *str)
 	}
 	return (1);
 }
-int	ft_check_dups(t_node *stack)
+void	ft_check_dups(t_node *stack)
 {
 	t_node	*now;
 	t_node	*dup;

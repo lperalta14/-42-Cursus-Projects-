@@ -13,7 +13,45 @@
 #include "push_swap.h"
 #include "my_lib/libft.h"
 
-void ft_getnode(t_node **stack, char **split)
+t_node	*ft_new_node(int num)
+{
+	t_node	*new;
+
+	new = malloc(sizeof(t_node));
+	if (!new)
+		return (NULL);
+	new->value = num;
+	new->index = -1;
+	new->pos = -1;
+	new->target = -1;
+	new->cost_a = 0;
+	new->cost_b = 0;
+	new->next = NULL;
+	return (new);
+}
+void	ft_add_back_node(t_node **stack, t_node *new)
+{
+	t_node	*tmp;
+
+	if (!*stack)
+	{
+		*stack = new;
+		return ;
+	}
+	tmp = *stack;
+	while (tmp->next)
+		tmp = tmp->next;
+	tmp->next = new;
+}
+t_node	*ft_lstlast_node(t_node *lst)
+{
+	if (!lst)
+		return (NULL);
+	while (lst->next)
+		lst = lst->next;
+	return (lst);
+}
+void	ft_getnode(t_node **stack, char **split)
 {
 	int		j;
 	long	num;
@@ -27,10 +65,10 @@ void ft_getnode(t_node **stack, char **split)
 		num = ft_atolints(split[j]);
 		if (num > INT_MAX || num < INT_MIN)
 			ft_error(split, stack);
-		new = ft_lstnew((int)num);
+		new = ft_new_node((int)num);
 		if (!new)
 			ft_error(split, stack);
-		ft_lstadd_back(stack, new);
+		ft_add_back_node(stack, new);
 		j++;
 	}
 	ft_free_split(split);
@@ -41,11 +79,17 @@ t_node	*ft_get_arguments(int argc, char **argv)
 	int i;
 	char **split;
 	t_node	*stack_a;
+	int j;
 
 	stack_a = NULL;
 	i = 1;
 	while(i < argc)
 	{
+		j = 0;
+		while(ft_isspace(argv[i][j]))
+			j++;
+		if (!argv[i][j])
+			ft_error(NULL, &stack_a);
 		split = ft_split(argv[i], ' ');
 		if (!split)
 			ft_error(split, &stack_a);
@@ -54,4 +98,3 @@ t_node	*ft_get_arguments(int argc, char **argv)
 	}
 	return (stack_a);
 }
-

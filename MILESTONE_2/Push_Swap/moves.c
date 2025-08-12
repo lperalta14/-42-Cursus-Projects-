@@ -13,26 +13,23 @@
 #include "my_lib/libft.h"
 #include "push_swap.h"
 
-// swap: intercambia los dos primeros elementos de la lista
-void	swap(t_list **stack)
+void	swap(t_node **stack)
 {
-	t_list *first;
-	t_list *second;
+	t_node *first;
+	t_node *second;
 
 	if (!stack || !*stack || !(*stack)->next)
 		return;
 	first = *stack;
 	second = first->next;
-
 	first->next = second->next;
 	second->next = first;
 	*stack = second;
 }
 
-// push: mueve el primer elemento de src a dst
-void	push(t_list **dst, t_list **src)
+void	push(t_node **dst, t_node **src)
 {
-	t_list *temp;
+	t_node *temp;
 
 	if (!src || !*src)
 		return;
@@ -42,26 +39,24 @@ void	push(t_list **dst, t_list **src)
 	*dst = temp;
 }
 
-// rotate: mueve el primer nodo al final
-void	rotate(t_list **stack)
+void	rotate(t_node **stack)
 {
-	t_list *first;
-	t_list *last;
+	t_node *first;
+	t_node *last;
 
 	if (!stack || !*stack || !(*stack)->next)
 		return;
 	first = *stack;
 	*stack = first->next;
 	first->next = NULL;
-	last = ft_lstlast(*stack);
+	last = ft_lstlast_node(*stack);
 	last->next = first;
 }
 
-// reverse rotate: mueve el último nodo al inicio
-void	reverse_rotate(t_list **stack)
+void	reverse_rotate(t_node **stack)
 {
-	t_list *prev;
-	t_list *last;
+	t_node *prev;
+	t_node *last;
 
 	if (!stack || !*stack || !(*stack)->next)
 		return;

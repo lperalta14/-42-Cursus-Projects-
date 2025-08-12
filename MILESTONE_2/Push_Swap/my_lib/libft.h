@@ -90,5 +90,6 @@ int		ft_printf(const char *nbr, ...);
 // ft_utils
 int		ft_atoi_base(const char *str, int str_base);
 long	ft_atolints(const char *nptr);
+void	ft_putnbr(int n);
 
 #endif

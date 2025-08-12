@@ -23,7 +23,7 @@ int	main(int argc, char **argv)
 	arg_list = ft_get_arguments(argc, argv);
 	if (!arg_list)
 		ft_error(NULL, NULL);
-	check_duplicates(arg_list);
+	ft_check_dups(arg_list);
 	//pushswap(arg_list);
 	ft_free_stack(&arg_list);
 	return (0);
