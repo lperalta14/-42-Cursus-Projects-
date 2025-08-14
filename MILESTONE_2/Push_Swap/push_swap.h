@@ -34,6 +34,8 @@ void	ft_free_stack(t_stack *stack);
 void	ft_free_split(char **split);
 void	ft_error(char **split, t_stack *stack);
 void	ft_check_dups(t_stack *stack);
+int		ft_stacksize(t_node *stack);
+void	ft_indexstack(t_stack *stack_a);
 
 void	ft_swap(t_node **stack);
 void	ft_swapa(t_node **stack_a);
@@ -54,4 +56,5 @@ void	ft_reverse_rotatea(t_node **stack_a);
 void	ft_reverse_rotateb(t_node **stack_b);
 void	ft_reverse_rotateab(t_node **stack_a, t_node **stack_b);
 
+void	calculate_costs(t_stack *a, t_stack *b);
 #endif
