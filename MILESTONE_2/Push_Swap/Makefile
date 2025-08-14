@@ -4,7 +4,7 @@ NAME = push_swap
 # Header
 HEADER = push_swap.h
 # Sources
-SRCS = checkers.c errors.c get_arguments.c moves.c push_swap.c
+SRCS = main.c checkers.c errors.c get_arguments.c push_swap.c moves/swap.c moves/rotate.c moves/reverserotate.c moves/push.c
 
 # Objects directory
 OBJ_DIR = obj
@@ -19,7 +19,7 @@ LIBFT_INC = -I$(LIBFT_DIR)
 
 # Compiler and flags
 CC = cc
-CFLAGS = -Wall -Wextra -Werror $(LIBFT_INC)
+CFLAGS = -Wall -Wextra -Werror -g $(LIBFT_INC)
 
 # Utils
 AR = @ar rcs
@@ -42,10 +42,11 @@ $(NAME): $(OBJS)
 	@echo "$(GREEN)🫦 sucsexfully! 🫦$(NC)"
 
 $(OBJ_DIR):
-	@mkdir -p $(OBJ_DIR)
+	@mkdir -p $(dir $@)
 	@echo "$(GREEN)📚Created obj directory📚$(NC)"
 
-$(OBJ_DIR)/%.o: %.c | $(OBJ_DIR)
+$(OBJ_DIR)/%.o: %.c
+	@mkdir -p $(dir $@)
 	@echo "$(PINK)🫦 Cumpiling $< ⌛⌛⌛$(NC)"
 	@$(CC) $(CFLAGS) -c $< -o $@
 

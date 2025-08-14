@@ -51,37 +51,39 @@ t_node	*ft_lstlast_node(t_node *lst)
 		lst = lst->next;
 	return (lst);
 }
-void	ft_getnode(t_node **stack, char **split)
+void	ft_getnode(t_stack *stack_a, char **split)
 {
 	int		j;
 	long	num;
-	t_node *new;
+	t_node	*new_node;
 
 	j = 0;
+	
 	while(split[j])
 	{
 		if(!ft_valid_digit(split[j]))
-			ft_error(split, stack);
+			ft_error(split, stack_a);
 		num = ft_atolints(split[j]);
 		if (num > INT_MAX || num < INT_MIN)
-			ft_error(split, stack);
-		new = ft_new_node((int)num);
-		if (!new)
-			ft_error(split, stack);
-		ft_add_back_node(stack, new);
+			ft_error(split, stack_a);
+		new_node = ft_new_node((int)num);
+		if (!stack_a->stack)
+			ft_error(split, stack_a);
+		ft_add_back_node(stack_a->stack, new_node);
+		stack_a->size++;
+		free(split[j]);
 		j++;
 	}
-	ft_free_split(split);
+	free(split);
 }
 
-t_node	*ft_get_arguments(int argc, char **argv)
+void	ft_get_arguments(int argc, char **argv, t_stack *stack_a)
 {
 	int i;
 	char **split;
-	t_node	*stack_a;
 	int j;
 
-	stack_a = NULL;
+	split = NULL;
 	i = 1;
 	while(i < argc)
 	{
@@ -89,12 +91,12 @@ t_node	*ft_get_arguments(int argc, char **argv)
 		while(ft_isspace(argv[i][j]))
 			j++;
 		if (!argv[i][j])
-			ft_error(NULL, &stack_a);
+			ft_error(split, stack_a);
 		split = ft_split(argv[i], ' ');
 		if (!split)
-			ft_error(split, &stack_a);
-		ft_getnode(&stack_a, split);
+			ft_error(split, stack_a);
+		ft_getnode(stack_a, split);
 		i++;
 	}
-	return (stack_a);
+	//ft_free_split(split);
 }

@@ -60,19 +60,19 @@ int	ft_valid_digit(char *str)
 	}
 	return (1);
 }
-void	ft_check_dups(t_node *stack)
+void	ft_check_dups(t_stack *stack)
 {
 	t_node	*now;
 	t_node	*dup;
 
-	now = stack;
+	now = *stack->stack;
 	while (now)
 	{
 		dup = now->next;
 		while (dup)
 		{
 			if (dup->value == now->value)
-				ft_error(NULL, &stack);
+				ft_error(NULL, stack);
 			dup = dup->next;
 		}
 		now = now->next;
