@@ -25,19 +25,19 @@ void	ft_rotate(t_node **stack)
 	last = ft_lstlast_node(*stack);
 	last->next = first;
 }
-void	ft_rotatea(t_node **stack_a)
+void	ft_ra(t_node **stack_a)
 {
 	ft_rotate(stack_a);
 	write(1, "ra", 2);
 }
-void	ft_rotateb(t_node **stack_b)
+void	ft_rb(t_node **stack_b)
 {
 	ft_rotate(stack_b);
 	write(1, "rb", 2);
 }
-void	ft_rotateab(t_node **stack_a, t_node **stack_b)
+void	ft_rr(t_node **stack_a, t_node **stack_b)
 {
-	ft_rotatea(stack_a);
-	ft_rotateb(stack_b);
+	ft_rotate(stack_a);
+	ft_rotate(stack_b);
 	write(1, "rr", 2);
 }

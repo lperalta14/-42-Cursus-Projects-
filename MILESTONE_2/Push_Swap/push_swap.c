@@ -61,12 +61,12 @@ void	ft_pushswap(t_stack *stack_a)
 	stack_a->size = ft_stack_size(*(stack_a->stack));
 	ft_indexstack(stack_a);
 	ft_pushex3(stack_a, stack_b);
-	sort_three(stack_a);
+	ft_sort_three(stack_a);
 	while (*(stack_b->stack))
 	{
 		ft_asignarposcion(stack_a, stack_b);
 		ponereltargetposition(stack_a, stack_b);
-		calculodecostos(stack_a, stack_b);
+		ft_calculatecosts(stack_a, stack_b);
 		moverelmasbarato(stack_a, stack_b);
 	}
 	rotaciodea(stack_a);

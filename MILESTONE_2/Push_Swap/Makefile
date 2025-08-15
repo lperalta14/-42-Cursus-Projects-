@@ -4,7 +4,7 @@ NAME = push_swap
 # Header
 HEADER = push_swap.h
 # Sources
-SRCS = main.c checkers.c errors.c get_arguments.c push_swap.c moves/swap.c moves/rotate.c moves/reverserotate.c moves/push.c costs/calculate_cost.c
+SRCS = main.c checkers.c errors.c get_arguments.c push_swap.c moves/swap.c moves/rotate.c moves/reverserotate.c moves/push.c #costs/calculate_cost.c
 
 # Objects directory
 OBJ_DIR = obj

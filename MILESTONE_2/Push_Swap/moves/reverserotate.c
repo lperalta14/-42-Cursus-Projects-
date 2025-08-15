@@ -31,17 +31,17 @@ void	ft_reverse_rotate(t_node **stack)
 	last->next = *stack;
 	*stack = last;
 }
-void	ft_reverse_rotatea(t_node **stack_a)
+void	ft_rra(t_node **stack_a)
 {
 	ft_reverse_rotate(stack_a);
 	write(1, "rra", 3);
 }
-void	ft_reverse_rotateb(t_node **stack_b)
+void	ft_rrb(t_node **stack_b)
 {
 	ft_reverse_rotate(stack_b);
 	write(1, "rrb", 3);
 }
-void	ft_reverse_rotateab(t_node **stack_a, t_node **stack_b)
+void	ft_rrr(t_node **stack_a, t_node **stack_b)
 {
 	ft_reverse_rotate(stack_a);
 	ft_reverse_rotate(stack_b);

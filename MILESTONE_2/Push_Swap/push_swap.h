@@ -38,23 +38,26 @@ int		ft_stacksize(t_node *stack);
 void	ft_indexstack(t_stack *stack_a);
 
 void	ft_swap(t_node **stack);
-void	ft_swapa(t_node **stack_a);
-void	ft_swapb(t_node **stack_b);
-void	ft_swapab(t_node **stack_a, t_node **stack_b);
+void	ft_sa(t_node **stack_a);
+void	ft_sb(t_node **stack_b);
+void	ft_ss(t_node **stack_a, t_node **stack_b);
 
 void	ft_push(t_node **dst, t_node **src);
-void	ft_pusha(t_node **dst, t_node **src);
-void	ft_pushb(t_node **dst, t_node **src);
+void	ft_pa(t_node **dst, t_node **src);
+void	ft_pb(t_node **dst, t_node **src);
 
 void	ft_rotate(t_node **stack);
-void	ft_rotatea(t_node **stack_a);
-void	ft_rotateb(t_node **stack_b);
-void	ft_rotateab(t_node **stack_a, t_node **stack_b);
+void	ft_ra(t_node **stack_a);
+void	ft_rb(t_node **stack_b);
+void	ft_rr(t_node **stack_a, t_node **stack_b);
 
 void	ft_reverse_rotate(t_node **stack);
-void	ft_reverse_rotatea(t_node **stack_a);
-void	ft_reverse_rotateb(t_node **stack_b);
-void	ft_reverse_rotateab(t_node **stack_a, t_node **stack_b);
+void	ft_rra(t_node **stack_a);
+void	ft_rrb(t_node **stack_b);
+void	ft_rrr(t_node **stack_a, t_node **stack_b);
 
-void	calculate_costs(t_stack *a, t_stack *b);
+void	ft_pushex3(t_stack *stack_a, t_stack *stack_b);
+void	ft_sort_three(t_stack *stack);
+
+void	ft_calculatecosts(t_stack *a, t_stack *b);
 #endif

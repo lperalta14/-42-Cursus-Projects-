@@ -24,12 +24,12 @@ void	ft_push(t_node **dst, t_node **src)
 	*dst = temp;
 }
 
-void	ft_pusha(t_node **dst, t_node **src)
+void	ft_pa(t_node **dst, t_node **src)
 {
 	ft_push(dst, src);
 	write(1, "pa", 2);
 }
-void	ft_pushb(t_node **dst, t_node **src)
+void	ft_pb(t_node **dst, t_node **src)
 {
 	ft_push(dst, src);
 	write(1, "pb", 2);

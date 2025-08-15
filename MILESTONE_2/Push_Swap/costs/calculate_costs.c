@@ -12,7 +12,7 @@
 
 #include "../push_swap.h"
 
-void calculate_costs(t_stack *a, t_stack *b)
+void	ft_calculatecosts(t_stack *a, t_stack *b)
 {
 	t_node *current;
 	int size_a = stack_size(a->stack);

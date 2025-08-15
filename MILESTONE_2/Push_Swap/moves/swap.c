@@ -25,19 +25,19 @@ void	ft_swap(t_node **stack)
 	second->next = first;
 	*stack = second;
 }
-void	ft_swapa(t_node **stack_a)
+void	ft_sa(t_node **stack_a)
 {
 	ft_swap(stack_a);
 	write(1, "sa", 2);
 }
-void	ft_swapb(t_node **stack_b)
+void	ft_sb(t_node **stack_b)
 {
 	ft_swap(stack_b);
 	write(1, "sb", 2);
 }
-void	ft_swapab(t_node **stack_a, t_node **stack_b)
+void	ft_ss(t_node **stack_a, t_node **stack_b)
 {
-	ft_swapa(stack_a);
-	ft_swapb(stack_b);
+	ft_swap(stack_a);
+	ft_swap(stack_b);
 	write(1, "ss", 2);
 }
