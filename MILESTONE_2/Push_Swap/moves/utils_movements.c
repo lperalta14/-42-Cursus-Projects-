@@ -59,3 +59,54 @@ void	ft_sort_three(t_stack *stack)
 		ft_ra(stack);
 	}
 }
+void	ft_assignposition(t_stack *stack_a, t_stack *stack_b)
+{
+	t_node	*ptr;
+	int		pos;
+
+	pos = 0;
+	ptr = *(stack_a->stack);
+	while (ptr)
+	{
+		ptr->pos = pos;
+		pos++;
+		ptr = ptr->next;
+	}
+	pos = 0;
+	ptr = *(stack_b->stack);
+	while (ptr)
+	{
+		ptr->pos = pos;
+		pos++;
+		ptr = ptr->next;
+	}
+}
+static t_node	*ft_find_cheapest(t_stack *b)
+{
+	t_node	*tmp;
+	t_node	*cheapest;
+	int		min_cost;
+
+	tmp = *(b->stack);
+	cheapest = tmp;
+	min_cost = abs(tmp->cost_a) + abs(tmp->cost_b);
+	while (tmp)
+	{
+		if (abs(tmp->cost_a) + abs(tmp->cost_b) < min_cost)
+		{
+			min_cost = abs(tmp->cost_a) + abs(tmp->cost_b);
+			cheapest = tmp;
+		}
+		tmp = tmp->next;
+	}
+	return (cheapest);
+}
+
+void	ft_movercheapest(t_stack *stack_a, t_stack *stack_b)
+{
+	t_node	*cheapest;
+
+	cheapest = ft_find_cheapest(stack_b);
+	ft_move(stack_a, stack_b, cheapest->cost_a, cheapest->cost_b);
+	ft_pa(stack_a->stack, stack_b->stack);
+}

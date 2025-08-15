@@ -54,20 +54,20 @@ void	ft_pushswap(t_stack *stack_a)
 
 	stack_b = malloc(sizeof(t_stack));
 	if(!stack_b)
-		return(0);
+		ft_error(NULL, stack_a);
 	stack_b->stack = ft_calloc(sizeof(t_node *), 1);
 	if (!stack_b->stack)
 		ft_error(NULL, stack_b);
-	stack_a->size = ft_stack_size(*(stack_a->stack));
+	stack_a->size = ft_stacksize(*(stack_a->stack));
 	ft_indexstack(stack_a);
 	ft_pushex3(stack_a, stack_b);
 	ft_sort_three(stack_a);
 	while (*(stack_b->stack))
 	{
-		ft_asignarposcion(stack_a, stack_b);
-		ponereltargetposition(stack_a, stack_b);
+		ft_assignposition(stack_a, stack_b);
+		ft_targetpositions(stack_a, stack_b);
 		ft_calculatecosts(stack_a, stack_b);
-		moverelmasbarato(stack_a, stack_b);
+		ft_movercheapest(stack_a, stack_b);
 	}
 	rotaciodea(stack_a);
 	ft_free_stack(stack_b);

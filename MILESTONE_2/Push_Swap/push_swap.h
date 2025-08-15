@@ -58,6 +58,10 @@ void	ft_rrr(t_node **stack_a, t_node **stack_b);
 
 void	ft_pushex3(t_stack *stack_a, t_stack *stack_b);
 void	ft_sort_three(t_stack *stack);
+void	ft_assignposition(t_stack *stack_a, t_stack *stack_b);
+void	ft_targetpositions(t_stack *a, t_stack *b);
+void	ft_move(t_stack *stack_a, t_stack *stack_b, int cost_a, int cost_b);
+void	ft_movercheapest(t_stack *stack_a, t_stack *stack_b);
 
 void	ft_calculatecosts(t_stack *a, t_stack *b);
 #endif
